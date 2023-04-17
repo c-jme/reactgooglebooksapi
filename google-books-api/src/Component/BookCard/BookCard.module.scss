@@ -1,0 +1,26 @@
+.Card {
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    > img {
+      margin: 3%;
+      width: 150px;
+      height: auto;
+    }
+  
+    > h4 {
+      padding: 15px 0;
+      // color: rgba(0, 0, 0, 0.5);
+      font-size: 20px;
+    }
+  
+    > p {
+      font-size: 16px;
+      padding-bottom: 20px;
+    }
+  
+}
