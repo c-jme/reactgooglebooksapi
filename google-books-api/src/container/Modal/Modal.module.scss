@@ -1,0 +1,33 @@
+.Modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 30px;
+  max-width: 600px;
+  max-height: 100vh;
+
+  &_Img {
+    height: 300px;
+    width: 200px;
+    margin: 20px;
+  }
+
+  &_Btn {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
+  }
+
+  &_Para {
+    font-size: 20px;
+    color: #DEDEDE;
+  }
+
+  &_ParaTitle {
+    font-weight: bold;
+  }
+}

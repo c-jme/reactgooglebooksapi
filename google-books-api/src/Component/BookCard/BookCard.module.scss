@@ -1,21 +1,32 @@
 .Card {
-    border: 2px solid white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  color: white;
+  margin: 20px;
+  margin-top: 50px;
+  border: 2px solid #363635;
+  background-color: #363635;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px;
+  width: 400px;
+  height: 300px;
+  
     > img {
       margin: 3%;
       width: 150px;
-      height: auto;
+      height: 100px;
     }
   
     > h4 {
       padding: 15px 0;
-      // color: rgba(0, 0, 0, 0.5);
       font-size: 20px;
+      
+      :active {
+        text-decoration: none;
+      }
     }
   
     > p {

@@ -8,6 +8,23 @@
 }
 
 .BookDisplay {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 25%);
+  gap: 30px;
+  margin: 2% 25px 0 25px;
+  padding-bottom: 30px;
+
+  :active {
+    display: white;
+  }
+
+  :visited {
+    text-decoration: none;
+  }
+
+  :link {
+    text-decoration: none;
+  }
+
 }

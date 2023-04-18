@@ -1,15 +1,15 @@
 import BookCard from "../../Component/BookCard/BookCard";
+import { BooksContext } from "../../Component/context/CreateBooks";
 import { SearchContext } from "../../Component/context/SearchProvider";
 import styles from "./Books.module.scss";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 
-const SearchEngine = ({ book }) => {
+const BookEngine = ({ book }) => {
   const { search, setSearch } = useContext(SearchContext);
-  const [books, setBooks] = useState([]);
-  const [filteredBooks, setFilteredBooks] = useState([]);
+  const {books, setBooks} = useContext(BooksContext);
 
   const getBooks = async (searchTerm) => {
-      const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=10`); 
+      const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=12`); 
 
       const data = await response.json();
 
@@ -17,24 +17,15 @@ const SearchEngine = ({ book }) => {
   };
 
   useEffect(() => {
-    getBooks();
-  }, []);
-
-  useEffect (() => {
-     const filtered = books.filter((b) => 
-     `${b.volumeInfo.title}`.toLowerCase().includes(search.toLowerCase())
-     );
-
-     setFilteredBooks(filtered || []);
+    getBooks(search);
   }, [search]);
 
-
   return (
-    <div>
-      {books.length === 0 ? <p>Loading... </p> : filteredBooks.map((book) => {
+    <div className={styles.BookDisplay}>
+      {!books ? <p>Loading... </p> : books.map((book) => {
         return <BookCard  
         key={`${book?.id}`}
-        img={`${book.volumeInfo.imageLinks.smallThumbnail}`}
+        img={`${book?.volumeInfo.imageLinks.thumbnail ?? 'No Image'}`}
         title={`${book.volumeInfo.title}`}
         authors={`${book.volumeInfo?.authors ?? 'Not Known'}`}
         id = {`${book.id}`}
@@ -45,4 +36,4 @@ const SearchEngine = ({ book }) => {
   ) 
 }
 
-export default SearchEngine
+export default BookEngine
